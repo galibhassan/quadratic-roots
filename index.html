@@ -20,7 +20,7 @@
     }
     .box{
       border-radius: 3px;
-      box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, .6);
+      box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, .3);
       padding: 1rem;
     }
     button{
@@ -36,7 +36,7 @@
       align-items: center;
     }
     .primary-button{
-      background-color: rgb(50, 24, 201);
+      background-color: rgb(100, 85, 184);
       color: whitesmoke;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 1rem;
@@ -53,7 +53,7 @@
 <body>
   <div id="container" class="container box">
 
-    <h2> দ্বিঘাত সমীকরনের দফারফা</h2>
+    <h2 class="box"> দ্বিঘাত সমীকরনের দফারফা</h2>
     <h3>ax<sup>2</sup> + bx + c = 0</h3>
     <div id="inputFields">
       <div id="inputFieldsWrapper">
@@ -117,6 +117,8 @@
         resultDiv = document.getElementById('result')
         // resultDiv.innerHTML = `Roots are: <pre> ${JSON.stringify(root, null, 2)} </pre>`;
         resultDiv.innerHTML = `
+            <b> Equation:</b> ${a}x<sup>2</sup> + ${b}x + ${c} = 0 </br>
+            </br>
             Roots are:
             <h3>${root[0]}</h3>
             <h3>${root[1]}</h3>
