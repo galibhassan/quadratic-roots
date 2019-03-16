@@ -6,21 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quadratic Equation Solver</title>
+  <style>
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
-  <h2> দ্বিঘাত সমীকরনের দফারফা</h2>
-  <h3>ax<sup>2</sup> + bx + c = 0</h3>
+  <div>
 
-  a = <input id="a" type="number" /> <br />
-  b = <input id="b" type="number" /> <br />
-  c = <input id="c" type="number" /> <br />
-  <br />
-  <button id="solveButton">Solve</button>
-  <br />
-  <p id="result">Keep an eye here...</p>
-
-  <script>
+    <h2> দ্বিঘাত সমীকরনের দফারফা</h2>
+    <h3>ax<sup>2</sup> + bx + c = 0</h3>
+    
+    a = <input id="a" type="number" /> <br />
+    b = <input id="b" type="number" /> <br />
+    c = <input id="c" type="number" /> <br />
+    <br />
+    <button id="solveButton">Solve</button>
+    <br />
+    <p id="result">Keep an eye here...</p>
+  </div>
+    
+    <script>
     window.addEventListener('load', function () {
       var dec2 = (num) => {
         return Math.round(num * 100) / 100;
