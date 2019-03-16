@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quadratic Equation Solver</title>
+</head>
+
+<body>
+  <h2> দ্বিঘাত সমীকরনের দফারফা</h2>
+  <h3>ax<sup>2</sup> + bx + c = 0</h3>
+
+  a = <input id="a" type="number" /> <br />
+  b = <input id="b" type="number" /> <br />
+  c = <input id="c" type="number" /> <br />
+  <br />
+  <button id="solveButton">Solve</button>
+  <br />
+  <p id="result">Keep an eye here...</p>
+
+  <script>
+    window.addEventListener('load', function () {
+      var dec2 = (num) => {
+        return Math.round(num * 100) / 100;
+      }
+
+      var getQuadraticRoot = (a, b, c) => {
+        let D = b ** 2 - 4 * a * c;
+
+        if (D < 0) {
+
+          const r1_re = dec2((-b) / (2 * a));
+          const r1_im = dec2(Math.sqrt(-D) / (2 * a));
+          const r1 = `${r1_re} + ${r1_im} i`;
+          const r2 = `${r1_re} - ${r1_im} i`;
+          const type = 'Complex pair';
+          return [r1, r2, type];
+
+        } else if (D === 0) {
+          const r1 = dec2((-b + Math.sqrt(D)) / (2 * a));
+          const r2 = dec2((-b - Math.sqrt(D)) / (2 * a));
+          const type = 'Real and equal'
+          return [r1, r2, type];
+
+        } else {
+          const r1 = dec2(-b / (2. * a) + Math.sqrt(D) / (2. * a));
+          const r2 = dec2(-b / (2. * a) - Math.sqrt(D) / (2. * a));
+          const type = 'Real and distinct';
+          return [r1, r2, type];
+
+        }
+      }
+
+      var solveButton = document.getElementById('solveButton');
+      solveButton.addEventListener('click', solveAndPrint);
+
+
+      function solveAndPrint() {
+
+        // input a, b, c
+        var a = document.getElementById('a').value;
+        var b = document.getElementById('b').value;
+        var c = document.getElementById('c').value;
+
+
+        var root = getQuadraticRoot(a, b, c)
+        resultDiv = document.getElementById('result')
+        // resultDiv.innerHTML = `Roots are: <pre> ${JSON.stringify(root, null, 2)} </pre>`;
+        resultDiv.innerHTML = `
+            Roots are:
+            <h3>${root[0]}</h3>
+            <h3>${root[1]}</h3>
+            Type: ${root[2]}
+          `
+      }
+
+    })
+  </script>
+</body>
+
+</html>
